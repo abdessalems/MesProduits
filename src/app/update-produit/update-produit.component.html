@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>Modifier un Produit :</h2>
+    <form>
+        <div class="form-group row">
+            <label for="idProduit" class="col-sm-2 col-md-2 col-lg-2 col-form-label">ID Produit</label>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <input readonly type="text" [(ngModel)]="currentProduit.idProduit" name="idProduit" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="nomProduit" class="col-sm-2 col-md-2 col-lg-2 col-form-label">Nom Produit</label>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <input type="text" [(ngModel)]="currentProduit.nomProduit" name="nomProduit" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="prixProduit" class="col-sm-2 col-md-2 col-lg-2 col-form-label">Prix Produit</label>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <input type="number" [(ngModel)]="currentProduit.prixProduit" name="prixProduit" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="dateCreation" class="col-sm-2 col-md-2 col-lg-2 col-form-label">Date création</label>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <input type="date" [ngModel]="currentProduit.dateCreation | date: 'yyyy-MM-dd'"
+                    (ngModelChange)="currentProduit.dateCreation = $event" name="dateCreation" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="idCat" class="col-sm-2 col-md-2 col-lg-2 col-form-label">Catégorie</label>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="updatedCatId">
+                    <option *ngFor="let cat of categories" [value]="cat.idCat">
+                        {{ cat.nomCat }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group mt-2">
+            <button type="submit" (click)="updateProduit()" class="btn btn-success">Modifier</button>
+        </div>
+    </form>
+</div>
