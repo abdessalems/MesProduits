@@ -56,9 +56,18 @@ export class ProduitService {
 
 
   }
+
+  rechercherParCategorie(idCat: number):Observable< Produit[]> {
+    const url = `${this.apiURL}/prodscat/${idCat}`;
+    return this.http.get<Produit[]>(url);
+    }
   ajouterProduit(prod: Produit): Observable<Produit> {
     return this.http.post<Produit>(this.apiURL, prod, httpOptions);
   }
+  rechercherParNom(nom: string):Observable< Produit[]> {
+    const url = `${this.apiURL}/prodsByName/${nom}`;
+    return this.http.get<Produit[]>(url);
+    }
 
   listeProduit(): Observable<Produit[]> {
     return this.http.get<Produit[]>(this.apiURL);

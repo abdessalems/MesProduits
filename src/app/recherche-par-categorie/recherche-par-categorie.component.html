@@ -1,0 +1,17 @@
+<div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <label>Categories</label>
+    <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="IdCategorie" (change)="onChange()">
+      <option *ngFor="let cat of categories" value="{{cat.idCat}}">{{cat.nomCat}}</option>
+    </select>
+  </div>
+  
+  <div class="col-sm-8 col-md-8 col-lg-8 mb-8">
+    <h2>Products for Selected Category</h2>
+    <div class="product-list">
+      <div *ngFor="let produit of produits" class="product-item">
+        <div class="product-title">{{ produit.nomProduit }}</div>
+        <div class="product-price">Price: {{ produit.prixProduit }}</div>
+      </div>
+    </div>
+  </div>
+  
